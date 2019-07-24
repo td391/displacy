@@ -11,7 +11,7 @@ class displaCy {
 
         this.format = options.format || 'spacy';
         this.defaultText = options.defaultText || 'Hello World.';
-        this.defaultModel = options.defaultModel || 'en';
+        this.defaultModel = options.defaultModel || 'en_core_web_md';
         this.collapsePunct = (options.collapsePunct != undefined) ?  options.collapsePunct : true;
         this.collapsePhrase = (options.collapsePhrase != undefined) ?  options.collapsePhrase : true;
 
@@ -35,7 +35,7 @@ class displaCy {
 
         let xhr = new XMLHttpRequest();
         xhr.open('POST', this.api, true);
-        xhr.setRequestHeader('Content-type', 'text/plain');
+        xhr.setRequestHeader('Content-type', 'application/json');
         xhr.onreadystatechange = () => {
             if(xhr.readyState === 4 && xhr.status === 200) {
                 if(typeof this.onSuccess === 'function') this.onSuccess();
